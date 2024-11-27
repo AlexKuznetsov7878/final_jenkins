@@ -4,13 +4,7 @@ pipeline {
     environment {
         BROWSER = "chrome"
     }
-
     stages {
-        stage('Checkout') {
-            steps {
-                sh 'git clone https://github.com/AlexKuznetsov7878/final_jenkins.git'
-            }
-        }
         stage('Install Dependencies') {
             steps {
                 sh 'pip install -r requirements.txt'
