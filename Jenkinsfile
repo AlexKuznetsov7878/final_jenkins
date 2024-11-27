@@ -1,6 +1,9 @@
 pipeline {
-    agent any
-
+    agent {
+        docker {
+            image 'python:3.10-slim'  // Use a Python image
+        }
+    }
     environment {
         BROWSER = "chrome"
     }
