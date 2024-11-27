@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/AlexKuznetsov7878/final_jenkins.git'
+                git clone 'https://github.com/AlexKuznetsov7878/final_jenkins.git'
             }
         }
         stage('Install Dependencies') {
