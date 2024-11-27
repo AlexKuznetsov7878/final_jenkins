@@ -4,15 +4,23 @@ pipeline {
     environment {
         BROWSER = "chrome"
     }
+
     stages {
-        stage('Install Dependencies') {
+        stage('Setup Virtual Environment') {
             steps {
-                sh 'pip install -r requirements.txt'
+                sh '''
+                python3 -m venv venv
+                source venv/bin/activate
+                pip install -r requirements.txt
+                '''
             }
         }
         stage('Run Tests') {
             steps {
-                sh 'pytest tests/test_google.py'
+                sh '''
+                source venv/bin/activate
+                pytest tests/test_google.py
+                '''
             }
         }
     }
